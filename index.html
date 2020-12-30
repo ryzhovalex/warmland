@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+	<title>Warmland</title>
+</head>
+<body>
+	<header class="header__wrapper">
+		<div class="header__inner container1000">
+			<div class="title">
+				<div class="title__logo">
+					<img src="images/logo-hoe.png" alt="hoe" width="60px" height="60px">
+				</div>
+				<div class="title__content">
+					<a href="#">WarmLand</a>
+				</div>
+			</div>
+			<div class="burger" id="burger"></div>
+			<nav class="nav nav_show_general" id="headnav">
+				<a href="#" class="nav__item headitem">Home</a>
+				<a href="market.html" class="nav__item headitem">Market</a>
+				<a href="blog.html" class="nav__item headitem">Blog</a>
+				<a href="about.html" class="nav__item headitem">About</a>
+			</nav>
+			<div class="connect">
+				<p class="connect__content" onclick="clickCopy('ho.mcplay.in:25632')">	
+					ho.mcplay.in:25632
+					<span class="popup-content" id="connectPopup">Скопировано в буфер обмена.</span>
+				</p>	
+			</div>
+		</div> <!-- ./header__inner -->
+	</header>
+
+
+	<main>
+		<div class="slider">
+			<div class="slider-container container1600">
+				<div class="slide slide_fade">
+					<img src="images/actual-village-vfx.jpg" alt="village">
+					<div class="slide__text"></div>
+				</div>
+
+				<div class="slide slide_fade">
+					<img src="images/actual-animals-vfx.jpg" alt="village">
+					<div class="slide__text"></div>
+				</div>
+
+				<div class="slide slide_fade">
+					<img src="images/actual-vfx-tree.jpg" alt="village">
+					<div class="slide__text"></div>
+				</div>
+
+				<a class="slider__prev" onclick="plusSlide(-1)">&#10094</a>
+				<a class="slider__next" onclick="plusSlide(1)">&#10095</a>
+				<br>
+				<div class="dot-container">
+					<span class="slider__dot" onclick="currentSlide(1)"></span>
+					<span class="slider__dot" onclick="currentSlide(2)"></span>
+					<span class="slider__dot" onclick="currentSlide(3)"></span>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="event container800">
+			<p class="event-content">
+				Warm news <br>
+				<a href="blog.html">Click here</a>
+			</p> 
+		</div>
+
+
+		<div class="good container1000">
+			<div class="good__inner">
+				<div class="good__item">
+					<div class="good__left-col">
+						<img src="images/icons/food-bread.png" class="good__img">
+					</div>
+					<div class="good__right-col">
+						<h3 class="good__name">Bread</h3>
+						<p class="good__description">Food item that can be eaten by the player.</p>
+						<div class="good__price">
+							<a href="#" class="good__order btn">Order</a>
+							<span class="good__price-info price">
+								<b class="price__value">1</b>
+								<img src="images/icons/coin.png" class="price__img">
+							</span>
+						</div>
+					</div>	
+				</div> <!-- ./good__item -->
+				<div class="good__item">
+					<div class="good__left-col">
+						<img src="images/icons/food-bread.png" class="good__img">
+					</div>
+					<div class="good__right-col">
+						<h3 class="good__name">Bread</h3>
+						<p class="good__description">Food item that can be eaten by the player.</p>
+						<div class="good__price">
+							<a href="#" class="good__order btn">Order</a>
+							<span class="good__price-info price">
+								<b class="price__value">1</b>
+								<img src="images/icons/coin.png" class="price__img">
+							</span>
+						</div>
+					</div>	
+				</div> <!-- ./good__item -->
+				<div class="good__item">
+					<div class="good__left-col">
+						<img src="images/icons/food-bread.png" class="good__img">
+					</div>
+					<div class="good__right-col">
+						<h3 class="good__name">Bread</h3>
+						<p class="good__description">Food item that can be eaten by the player.</p>
+						<div class="good__price">
+							<a href="#" class="good__order btn">Order</a>
+							<span class="good__price-info price">
+								<b class="price__value">1323</b>
+								<img src="images/icons/coin.png" class="price__img">
+							</span>
+						</div>
+					</div>	
+				</div> <!-- ./good__item -->
+				<div class="good__item">
+					<div class="good__left-col">
+						<img src="images/icons/food-bread.png" class="good__img">
+					</div>
+					<div class="good__right-col">
+						<h3 class="good__name">Bread</h3>
+						<p class="good__description">Food item that can be eaten by the player.</p>
+						<div class="good__price">
+							<a href="#" class="good__order btn">Order</a>
+							<span class="good__price-info price">
+								<b class="price__value">12</b>
+								<img src="images/icons/coin.png" class="price__img">
+							</span>
+						</div>
+					</div>	
+				</div> <!-- ./good__item -->
+			</div> <!-- ./good__inner -->
+		</div> <!-- ./good -->
+			
+
+		<div class="photos">
+			<div class="container1600">
+				<div class="photos__item">
+					<img src="https://placehold.it/400x225" alt="" class="photos__photo" alt="">
+				</div>
+				<div class="photos__item">
+					<img src="https://placehold.it/400x225" alt="" class="photos__photo" alt="">
+				</div>
+				<div class="photos__item">
+					<img src="https://placehold.it/400x225" alt="" class="photos__photo" alt="">
+				</div>
+				<div class="photos__item">
+					<img src="https://placehold.it/400x225" alt="" class="photos__photo" alt="">
+				</div>
+			</div>
+		</div>
+	</main>
+
+
+	<footer>
+		<div class="footer">
+			<div class="footer__inner container1600">
+				<div class="footer__left">
+					<div class="footer__logo title__content">Warmland</div>
+					<p class="footer__dscr">Best gameplay for the best farmer's life immersive. Connect us and let's harvest wheat together.</p>
+				</div>
+
+				<div class="footer__right">
+					<nav class="nav nav-bot">
+						<a href="#" class="nav__item">Home</a>
+						<a href="market.html" class="nav__item">Market</a>
+						<a href="blog.html" class="nav__item">Blog</a>
+						<a href="about.html" class="nav__item">About</a>
+					</nav>
+					<div class="footer__right-bot">
+						<div class="footer__contact contacts">
+							<div class="contacts__item">
+								<img src="images/icons/instagram.png" alt="" class="contacts__img" width="35px" height="35px">
+							</div>
+							<div class="contacts__item">
+								<img src="images/icons/facebook.png" alt="" class="contacts__img" width="35px" height="35px">
+							</div>
+							<div class="contacts__item">
+								<img src="images/icons/twitter.png" alt="" class="contacts__img" width="35px" height="35px">
+							</div>
+							<div class="contacts__item">
+								<img src="images/icons/reddit.png" alt="" class="contacts__img" width="35px" height="35px">
+							</div>
+						</div>
+						<p class="footer__powered">Powered by: Creeper International</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- JS -->
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+	</script>
+	<script src="js/slider.js"></script>
+	<script src="js/clipPopup.js"></script>
+	<script src="js/popupNav.js"></script>
+</body>
+</html>

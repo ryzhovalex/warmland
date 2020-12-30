@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+	<title>Warmland</title>
+</head>
+<body>
+	<header class="header__wrapper">
+		<div class="header__inner container1000">
+			<div class="title">
+				<div class="title__logo">
+					<img src="images/logo-hoe.png" alt="hoe" width="60px" height="60px">
+				</div>
+				<div class="title__content">
+					<a href="#">WarmLand</a>
+				</div>
+			</div>
+			<div class="burger" id="burger"></div>
+			<nav class="nav nav_show_general" id="headnav">
+				<a href="index.html" class="nav__item headitem">Home</a>
+				<a href="#" class="nav__item headitem">Market</a>
+				<a href="blog.html" class="nav__item headitem">Blog</a>
+				<a href="about.html" class="nav__item headitem">About</a>
+			</nav>
+			<div class="connect">
+				<p class="connect__content" onclick="clickCopy('ho.mcplay.in:25632')">	
+					ho.mcplay.in:25632
+					<span class="popup-content" id="connectPopup">Скопировано в буфер обмена.</span>
+				</p>	
+			</div>
+		</div> <!-- ./header__inner -->
+	</header>
+
+	<main>
+		<div class="market-head">
+			<div class="market-head__inner container1200">
+				<h2 class="market-head__title">Market</h2>
+				<input class="market-head__search" type="text" value="search" id="market-search">
+			</div> <!-- ./market-head__inner -->
+		</div> <!-- ./market-head -->
+
+		<div class="selection">
+			<div class="selection__inner container1200">
+				<div class="selection__left-col">
+					<div class="selection__sorter">
+						<img src="images/icons/up-arrow.svg" alt="" class="selection__arrow-up" width="53px" height="28px" style="display:none">
+						<img src="images/icons/dot.svg" alt="" class="selection__dot" width="35px" height="20px" style="display:inline-block">
+						<img src="images/icons/down-arrow.svg" alt="" class="selection__arrow-down" width="53px" height="28px" style="display:none">
+						<button class="selection__btn selection__btn_type_sort" id="sort-name" data-sortup="none">Name (A-Z)</button>
+					</div>
+					<div class="selection__sorter selection__sorter_pos_last">
+						<img src="images/icons/up-arrow.svg" alt="" class="selection__arrow-up" width="53px" height="28px" style="display:none">
+						<img src="images/icons/dot.svg" alt="" class="selection__dot" width="35px" height="20px" style="display:inline-block">
+						<img src="images/icons/down-arrow.svg" alt="" class="selection__arrow-down" width="53px" height="28px" style="display:none">
+						<button class="selection__btn selection__btn_type_sort" id="sort-price" data-sortup="none">Price</button>
+					</div>
+				</div>
+				<div class="selection__right-col">
+					<label>
+						<span class="selection__selector-name">Type:</span>
+						<select name="type-selector" id="type-selector" class="selection__type-selector">
+							<option value="all">All</option>
+							<option value="food">Food</option>
+							<option value="ingot">Ingot</option>
+							<option value="block">Block</option>
+							<option value="material">Material</option>
+						</select>	
+					</label>	
+				</div>
+			</div> <!-- ./selection__inner -->
+		</div> <!-- ./selection -->
+
+		<div class="good container1000">
+			<div class="good__inner" id="good-list">
+
+				<div class="good__item" data-filter="food">
+					<div class="good__left-col">
+						<img src="images/icons/food-bread.png" class="good__img">
+					</div>
+					<div class="good__right-col">
+						<h3 class="good__name">Bread</h3>
+						<p class="good__description">Food item that can be eaten by the player.</p>
+						<div class="good__price">
+							<a href="#" class="good__order btn">Order</a>
+							<span class="good__price-info price">
+								<b class="price__value">1</b>
+								<img src="images/icons/coin.png" class="price__img">
+							</span>
+						</div>
+					</div>	
+				</div> <!-- ./good__item -->
+
+				<div class="good__item" data-filter="ingot">
+					<div class="good__left-col">
+						<img src="images/icons/ingot-gold.png" class="good__img">
+					</div>
+					<div class="good__right-col">
+						<h3 class="good__name">Gold</h3>
+						<p class="good__description">Used to craft various items and for bartering with piglins.</p>
+						<div class="good__price">
+							<a href="#" class="good__order btn">Order</a>
+							<span class="good__price-info price">
+								<b class="price__value">5</b>
+								<img src="images/icons/coin.png" class="price__img">
+							</span>
+						</div>
+					</div>	
+				</div> <!-- ./good__item -->
+
+				<div class="good__item" data-filter="block">
+					<div class="good__left-col">
+						<img src="images/icons/block-brick.png" class="good__img">
+					</div>
+					<div class="good__right-col">
+						<h3 class="good__name">Brick</h3>
+						<p class="good__description">Very reliable and common block for your building.</p>
+						<div class="good__price">
+							<a href="#" class="good__order btn">Order</a>
+							<span class="good__price-info price">
+								<b class="price__value">2</b>
+								<img src="images/icons/coin.png" class="price__img">
+							</span>
+						</div>
+					</div>	
+				</div> <!-- ./good__item -->
+
+				<div class="good__item" data-filter="material">
+					<div class="good__left-col">
+						<img src="images/icons/material-bonemeal.png" class="good__img">
+					</div>
+					<div class="good__right-col">
+						<h3 class="good__name">Bone Meal</h3>
+						<p class="good__description">Can be used as a fertilizer for most plants. Irreplaceable for farmers.</p>
+						<div class="good__price">
+							<a href="#" class="good__order btn">Order</a>
+							<span class="good__price-info price">
+								<b class="price__value">4</b>
+								<img src="images/icons/coin.png" class="price__img">
+							</span>
+						</div>
+					</div>	
+				</div> <!-- ./good__item -->
+
+				<div class="good__item" data-filter="food">
+					<div class="good__left-col">
+						<img src="images/icons/food-fish.png" class="good__img">
+					</div>
+					<div class="good__right-col">
+						<h3 class="good__name">Fish</h3>
+						<p class="good__description">Aquatic life-forms that are found everywhere throughout water.</p>
+						<div class="good__price">
+							<a href="#" class="good__order btn">Order</a>
+							<span class="good__price-info price">
+								<b class="price__value">2</b>
+								<img src="images/icons/coin.png" class="price__img">
+							</span>
+						</div>
+					</div>	
+				</div> <!-- ./good__item -->
+
+				<div class="good__item" data-filter="food">
+					<div class="good__left-col">
+						<img src="images/icons/food-steak.png" class="good__img">
+					</div>
+					<div class="good__right-col">
+						<h3 class="good__name">Steak</h3>
+						<p class="good__description">A food item obtained from cows or from cooking raw beef.</p>
+						<div class="good__price">
+							<a href="#" class="good__order btn">Order</a>
+							<span class="good__price-info price">
+								<b class="price__value">3</b>
+								<img src="images/icons/coin.png" class="price__img">
+							</span>
+						</div>
+					</div>	
+				</div> <!-- ./good__item -->
+
+				<div class="good__item" data-filter="food">
+					<div class="good__left-col">
+						<img src="images/icons/food-cake.png" class="good__img">
+					</div>
+					<div class="good__right-col">
+						<h3 class="good__name">Cake</h3>
+						<p class="good__description">Is a food block that can be eaten by the player</p>
+						<div class="good__price">
+							<a href="#" class="good__order btn">Order</a>
+							<span class="good__price-info price">
+								<b class="price__value">7</b>
+								<img src="images/icons/coin.png" class="price__img">
+							</span>
+						</div>
+					</div>	
+				</div> <!-- ./good__item -->
+
+				<div class="good__item" data-filter="ingot">
+					<div class="good__left-col">
+						<img src="images/icons/ingot-iron.png" class="good__img">
+					</div>
+					<div class="good__right-col">
+						<h3 class="good__name">Iron</h3>
+						<p class="good__description">Versatile metal ingots used extensively in crafting.</p>
+						<div class="good__price">
+							<a href="#" class="good__order btn">Order</a>
+							<span class="good__price-info price">
+								<b class="price__value">2</b>
+								<img src="images/icons/coin.png" class="price__img">
+							</span>
+						</div>
+					</div>	
+				</div> <!-- ./good__item -->
+			</div> <!-- ./good__inner -->
+		</div> <!-- ./good -->
+	</main>
+		
+	<footer>
+		<div class="footer">
+			<div class="footer__inner container1600">
+				<div class="footer__left">
+					<div class="footer__logo title__content">Warmland</div>
+					<p class="footer__dscr">Best gameplay for the best farmer's life immersive. Connect us and let's harvest wheat together.</p>
+				</div>
+
+				<div class="footer__right">
+					<nav class="nav nav-bot">
+						<a href="index.html" class="nav__item">Home</a>
+						<a href="#" class="nav__item">Market</a>
+						<a href="blog.html" class="nav__item">Blog</a>
+						<a href="about.html" class="nav__item">About</a>
+					</nav>
+					<div class="footer__right-bot">
+						<div class="footer__contact contacts">
+							<div class="contacts__item">
+								<img src="images/icons/instagram.png" alt="" class="contacts__img" width="35px" height="35px">
+							</div>
+							<div class="contacts__item">
+								<img src="images/icons/facebook.png" alt="" class="contacts__img" width="35px" height="35px">
+							</div>
+							<div class="contacts__item">
+								<img src="images/icons/twitter.png" alt="" class="contacts__img" width="35px" height="35px">
+							</div>
+							<div class="contacts__item">
+								<img src="images/icons/reddit.png" alt="" class="contacts__img" width="35px" height="35px">
+							</div>
+						</div>
+						<p class="footer__powered">Powered by: Creeper International</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- JS -->
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+	<script src="js/popupNav.js"></script>
+	<script src="js/goodsSearcher.js"></script>
+</body>
+</html>

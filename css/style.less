@@ -1,0 +1,84 @@
+//compress: true
+
+html {
+	font-size: 15px;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1rem;
+	color: white;
+	background-image: url(../images/back-v2.png);
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+.container1600 {
+	width: 1600px;
+	margin: 0 auto;
+}
+
+.container1200 {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.container1000 {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.container800 {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.btn {
+	background-color: green;
+	color: white;
+	padding: 0.5em;
+	text-transform: uppercase;
+	font-weight: bold;
+	border: 3px solid black;
+
+	transition: background-color .2s linear;
+
+	&:hover {
+		background-color: orange;
+	}
+}
+
+
+/* Media */
+@media screen and (max-width: 1620px) {
+	.container1600, .container1200, .container1000, .container800  {
+		max-width: 100%;
+	}
+}
+
+
+/* Blocks */
+@import "blocks/header";
+@import "blocks/slider";
+@import "blocks/event";
+@import "blocks/good";
+@import "blocks/photos";
+@import "blocks/footer";
+@import "blocks/market";
+@import "blocks/blog";
