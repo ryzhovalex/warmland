@@ -1,0 +1,123 @@
+.good {
+  margin-top: 80px;
+}
+.good__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 16px;
+}
+.good__item {
+  position: relative;
+  text-align: center;
+  display: flex;
+  margin-bottom: 80px;
+  margin-right: 60px;
+}
+.good__name {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+}
+.good__left-col {
+  flex-basis: 50%;
+}
+.good__right-col {
+  flex-basis: 50%;
+  margin-left: 15px;
+}
+.good__img {
+  width: 100px;
+  height: 100px;
+}
+.good__description {
+  margin-bottom: 10px;
+  width: 270px;
+  height: 70px;
+  line-height: 20px;
+  overflow: hidden;
+}
+.good__price {
+  display: flex;
+  width: 280px;
+  padding: 10px;
+  justify-content: center;
+}
+.good__order-form {
+  display: flex;
+  width: 150px;
+}
+.order-form__btn {
+  width: 100px;
+  font-size: 1.15rem;
+}
+.order-form__amount {
+  width: 55px;
+  height: 65%;
+  margin: auto 0;
+  background-color: transparent;
+  color: white;
+  padding-left: 4px;
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.good__price-info {
+  display: flex;
+  width: auto;
+  margin-left: 30px;
+}
+.price__value {
+  margin: auto 5px auto 0;
+}
+.price__img {
+  width: 30px;
+  height: 30px;
+  margin: auto 0;
+}
+.order-form_service {
+  width: auto;
+}
+.hot-offer {
+  position: absolute;
+  bottom: 2%;
+  left: 20%;
+}
+.hot-offer__img {
+  width: 42px;
+  height: 48px;
+}
+div[data-filter='service'] .hot-offer {
+  left: 25%;
+}
+/* Media */
+@media screen and (max-width: 1020px) {
+  .good__inner {
+    justify-content: space-around;
+  }
+  .good__item {
+    margin-bottom: 40px;
+    margin-right: 20px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .good__item {
+    margin: 0 10px 40px 10px;
+    width: 300px;
+  }
+  .good__left-col {
+    display: none;
+  }
+}
+@media screen and (max-width: 400px) {
+  .good__item {
+    width: 220px;
+  }
+  .good__right-col > * {
+    width: 200px;
+  }
+  .good__order {
+    margin-right: 25px;
+  }
+}
+/*# sourceMappingURL=good.css.map */

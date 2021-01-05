@@ -1,7 +1,6 @@
 // main: ../style.less
 
-/* Head and Search */
-
+/* Head */
 .market-head {
 	margin: 50px 0 25px 0;
 }
@@ -22,6 +21,12 @@
 	margin: 0;
 }
 
+
+/* Search */
+.market-head__search-container {
+	position: relative;
+}
+
 .market-head__search {
 	color: rgba(255,255,255,0.3);
 	background-color: rgba(0,0,0,0.5);
@@ -29,6 +34,27 @@
 	height: 35px;
 	font-size: 1.25rem;
 	padding: 5px 10px;
+}
+
+.market-head__search-clear {
+	display: none;
+
+	position: absolute;
+	right: 5%;
+	bottom: 22%;
+
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	border-color: transparent;
+}
+
+.not-found {
+	display: none;
+
+	text-align: center;
+	font-size: 1.5rem;
+	color: rgba(255,255,255,0.5);
 }
 
 
@@ -87,7 +113,7 @@
 	color: rgba(255,255,255,0.5);
 }
 
-.selection__type-selector {
+.selection__type-filter {
 	font-size: 1.15rem;
 	background-color: #000;
 	color: #fff;

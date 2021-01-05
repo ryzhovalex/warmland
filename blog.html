@@ -8,38 +8,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
 	<title>Warmland</title>
 </head>
-<body>
-	<header class="header__wrapper">
-		<div class="header__inner container1000">
-			<div class="title">
-				<div class="title__logo">
-					<img src="images/logo-hoe.png" alt="hoe" width="60px" height="60px">
-				</div>
-				<div class="title__content">
-					<a href="#">WarmLand</a>
-				</div>
-			</div>
-			<div class="burger" id="burger"></div>
-			<nav class="nav nav_show_general" id="headnav">
-				<a href="index.html" class="nav__item headitem">Home</a>
-				<a href="market.html" class="nav__item headitem">Market</a>
-				<a href="#" class="nav__item headitem">Blog</a>
-				<a href="about.html" class="nav__item headitem">About</a>
-			</nav>
-			<div class="connect">
-				<p class="connect__content" onclick="clickCopy('ho.mcplay.in:25632')">	
-					ho.mcplay.in:25632
-					<span class="popup-content" id="connectPopup">Скопировано в буфер обмена.</span>
-				</p>	
-			</div>
-		</div> <!-- ./header__inner -->
-	</header>
-
-
+<body id="blog">
 	<main>
 		<div class="blog">
 			<div class="container1000 blog__inner">
-				<h2 class="blog__title">Our villagers</h2>
+				<h2 class="blog__title">Наши сельчане</h2>
 
 				<div class="blog__quote quote">
 					<div class="quote__left-col">
@@ -51,7 +24,7 @@
 						<p class="quote__text">
 							„В последнем счете всегда побеждает только инстинкт самосохранения. Под давлением этого инстинкта вся так называемая человечность, являющаяся только выражением чего-то среднего между глупостью, трусостью и самомнением, тает как снег на весеннем солнце.“
 						</p>
-						<p class="quote__author">- Adolf, bunker owner</p>
+						<p class="quote__author">- Адольф, владелец бункера</p>
 					</div>
 				</div>
 
@@ -65,7 +38,7 @@
 						<p class="quote__text">
 							„Что бы ты ни делал, делай это хорошо. Совершенствуй свое искусство, даже если жаришь котлеты в Макдоналдсе. Не каждый должен становиться рэпером. Будь гребаным асом в мире котлет и помни, что есть что-то, чего не могу я. Например, я ни хрена не смыслю в гольфе.“
 						</p>
-						<p class="quote__author">- Bob, bum</p>
+						<p class="quote__author">- Боб, бездельник</p>
 					</div>
 				</div>
 
@@ -79,7 +52,7 @@
 						<p class="quote__text">
 							„Обо мне говорят, что я чудовище, а я, видите, шучу по этому поводу. Значит, я не так и ужасен.“
 						</p>
-						<p class="quote__author">- Iosif, communism leader</p>
+						<p class="quote__author">- Иосиф, вождь коммунизма</p>
 					</div>
 				</div>
 
@@ -93,7 +66,7 @@
 						<p class="quote__text">
 							„Коллектив у нас хороший. Люди — дерьмо!“
 						</p>
-						<p class="quote__author">- Semen, average worker</p>
+						<p class="quote__author">- Семён, среднестатистический работяга</p>
 					</div>
 				</div>
 			</div>
@@ -101,47 +74,11 @@
 	</main>
 
 
-	<footer>
-		<div class="footer">
-			<div class="footer__inner container1600">
-				<div class="footer__left">
-					<div class="footer__logo title__content">Warmland</div>
-					<p class="footer__dscr">Best gameplay for the best farmer's life immersive. Connect us and let's harvest wheat together.</p>
-				</div>
-
-				<div class="footer__right">
-					<nav class="nav nav-bot">
-						<a href="index.html" class="nav__item">Home</a>
-						<a href="market.html" class="nav__item">Market</a>
-						<a href="#" class="nav__item">Blog</a>
-						<a href="about.html" class="nav__item">About</a>
-					</nav>
-					<div class="footer__right-bot">
-						<div class="footer__contact contacts">
-							<div class="contacts__item">
-								<img src="images/icons/instagram.png" alt="" class="contacts__img" width="35px" height="35px">
-							</div>
-							<div class="contacts__item">
-								<img src="images/icons/facebook.png" alt="" class="contacts__img" width="35px" height="35px">
-							</div>
-							<div class="contacts__item">
-								<img src="images/icons/twitter.png" alt="" class="contacts__img" width="35px" height="35px">
-							</div>
-							<div class="contacts__item">
-								<img src="images/icons/reddit.png" alt="" class="contacts__img" width="35px" height="35px">
-							</div>
-						</div>
-						<p class="footer__powered">Powered by: Creeper International</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-
-
 	<!-- JS -->
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
 	</script>
+	<script src="js/patternGenerator.js"></script>
 	<script src="js/popupNav.js"></script>
+	<script src="js/clipPopup.js"></script>
 </body>
 </html>

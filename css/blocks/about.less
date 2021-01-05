@@ -1,0 +1,78 @@
+// main: ../style.less
+
+.about {
+	margin: 50px 0;
+}
+
+.about__title {
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 2rem;
+
+	padding-bottom: 30px;
+	border-bottom: 2px solid orange;
+
+	margin-bottom: 70px;
+}
+
+.about__state {
+	margin-top: 150px;
+}
+
+.state {
+	display: flex;
+}
+
+.state__title {
+	display: inline-block;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 1.5rem;
+
+	margin: 0;
+	border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.state__content {
+	display: flex;
+	flex-direction: column;
+
+	margin-left: 50px;
+}
+
+.state__img {
+	border: 2px solid rgba(255,255,255,0.3);
+}
+
+.state__description {
+	font-size: 1.15rem;
+}
+
+.state__img-container {
+	display: flex;
+	flex-direction: column;
+
+	width: 420px;
+	height: 250px;
+}
+
+.state__img-comment {
+	text-align: center;
+}
+
+
+/* Media */
+@media screen and (max-width: 800px) {
+	.state {
+		flex-direction: column;
+	}
+
+	.state__img {
+		width: 100%;
+	}
+
+	.state__content {
+		margin-top: 25px;
+	}
+}
