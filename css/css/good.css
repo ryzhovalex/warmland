@@ -38,6 +38,7 @@
   overflow: hidden;
 }
 .good__price {
+  position: relative;
   display: flex;
   width: 280px;
   padding: 10px;
@@ -67,7 +68,31 @@
   width: auto;
   margin-left: 30px;
 }
-.price__value {
+div[data-filter='service'] .good__price-info {
+  margin-left: 75px;
+}
+.good__price-info-crossed {
+  display: flex;
+  position: absolute;
+  color: gray;
+  width: 41px;
+  height: 44px;
+  right: 0%;
+  top: -35%;
+}
+.good__price-info-crossed img {
+  -webkit-filter: grayscale(1);
+}
+.good__price-info-crossed:after {
+  content: "";
+  position: absolute;
+  top: 48%;
+  width: 100%;
+  height: 1px;
+  background-color: red;
+}
+.price__value,
+.price__value-crossed {
   margin: auto 5px auto 0;
 }
 .price__img {
@@ -78,17 +103,30 @@
 .order-form_service {
   width: auto;
 }
+.hot-offers {
+  margin-top: 100px;
+}
+.hot-offers__title {
+  font-size: 1.5rem;
+  border-bottom: 2px solid orange;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+}
 .hot-offer {
+  display: flex;
   position: absolute;
   bottom: 2%;
-  left: 20%;
+  left: 5%;
+  font-weight: bold;
+}
+.hot-offer__discount {
+  font-size: 1.15rem;
+  margin-right: 15px;
+  color: orange;
 }
 .hot-offer__img {
   width: 42px;
   height: 48px;
-}
-div[data-filter='service'] .hot-offer {
-  left: 25%;
 }
 /* Media */
 @media screen and (max-width: 1020px) {

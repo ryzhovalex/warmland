@@ -1,7 +1,8 @@
 /* API for generating goods in the market */
 
 function createNewGood(type, imgURL, name, description, 
-						price, isHotOffer=false) {
+						price, isHotOffer=false, hotOfferDiscount=0) {
+
 	const ITEM_PATTERN =
 		`
 		<div class="good__left-col">
@@ -43,7 +44,8 @@ function createNewGood(type, imgURL, name, description,
 		`
 	const HOTOFFER_PATTERN =
 		`
-		<img src="images/icons/hot-offer-present.png" alt="Hot offer!">
+		<p class="hot-offer__discount">-${hotOfferDiscount}%</p>
+		<img class="hot-offer__img" src="images/icons/hot-offer-present.png" alt="Hot offer!">
 		`
 
 	let newGood = document.createElement("div")
@@ -60,14 +62,36 @@ function createNewGood(type, imgURL, name, description,
 
 	// Hot Offer adaptation //
 	if (isHotOffer) {
+		// create hot offer title and icon container
 		let hotOfferIcon = document.createElement("div")
 		hotOfferIcon.classList.add("hot-offer")
 		hotOfferIcon.innerHTML = HOTOFFER_PATTERN
-		// add class to child img
-		hotOfferIcon.querySelector("img").classList.add("hot-offer__img")
+
 		// add color to good's name
 		newGood.querySelector(".good__name").style.color = "orange"
+
 		newGood.appendChild(hotOfferIcon)
+
+		// create hot offer crossed old price
+		let priceCross = newGood.querySelector(".good__price-info").cloneNode(true)
+		let newGoodPrice = newGood.querySelector(".good__price")
+
+		priceCross.classList.remove("good__price-info")
+		priceCross.classList.add("good__price-info-crossed")
+
+		const priceCrossPriceValue = priceCross.querySelector(".price__value") 
+		priceCrossPriceValue.classList.remove("price__value")
+		priceCrossPriceValue.classList.add("price__value-crossed")
+
+		newGoodPrice.appendChild(priceCross)
+
+		// calculate new price //
+		let newGoodDiscountPrice = newGood.querySelector(".price__value").dataset.price
+
+		newGoodDiscountPrice = 
+			parseInt(Math.ceil(newGoodDiscountPrice - (newGoodDiscountPrice * hotOfferDiscount / 100)))
+
+		newGood.querySelector(".price__value").dataset.price = newGoodDiscountPrice
 	}
 
 	let goodsList = document.getElementById("good-list")
@@ -79,7 +103,7 @@ function createGoodList() {
 	createNewGood(
 		'food', 'food-bread.png', 'Хлеб', 
 		'Вкусный и свежий хлеб! Теперь на 99% без плесени.', 
-		1, true)
+		2, true, 50)
 	createNewGood(
 		'food', 'food-fish.png', 'Рыба', 
 		'Рыба из сточных вод ядерного реактора. Имеет специфичный вкус.', 
@@ -99,7 +123,7 @@ function createGoodList() {
 	createNewGood(
 		'ingot', 'ingot-gold.png', 'Золото', 
 		'Это золото упорным трудом выкапывалось узниками коммунистического лагеря.', 
-		6, true)
+		12, true, 40)
 	createNewGood(
 		'block', 'block-brick.png', 'Кирпичи', 
 		'Произведено многочисленными любителями хоррор-игр!', 
@@ -107,11 +131,11 @@ function createGoodList() {
 	createNewGood(
 		'material', 'material-bonemeal.png', 'Костная мука', 
 		'Стала незаменимой на огороде с тех пор как фермеры отказались от навоза.', 
-		5, true)
+		8, true, 40)
 	createNewGood(
 		'service', 'service-help.png', 'Помощь на огороде', 
 		'Ваш мирный сосед придёт на помощь, если сил полить грядку не осталось.', 
-		8, true)
+		20, true, 75)
 }
 
 
@@ -119,19 +143,19 @@ function createHotOffersList() {
 	createNewGood(
 		'food', 'food-bread.png', 'Хлеб', 
 		'Вкусный и свежий хлеб! Теперь на 99% без плесени.', 
-		1, true)
+		2, true, 50)
 	createNewGood(
 		'material', 'material-bonemeal.png', 'Костная мука', 
 		'Стала незаменимой на огороде с тех пор как фермеры отказались от навоза.', 
-		5, true)
+		8, true, 40)
 	createNewGood(
 		'ingot', 'ingot-gold.png', 'Золото', 
 		'Это золото упорным трудом выкапывалось узниками коммунистического лагеря.', 
-		6, true)
+		12, true, 40)
 	createNewGood(
 		'service', 'service-help.png', 'Помощь на огороде', 
 		'Ваш мирный сосед придёт на помощь, если сил полить грядку не осталось.', 
-		8, true)
+		20, true, 75)
 }
 
 

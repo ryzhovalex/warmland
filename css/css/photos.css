@@ -1,0 +1,14 @@
+.photos {
+  margin-top: 80px;
+  text-align: center;
+}
+.photos__item {
+  display: inline-block;
+  width: 395px;
+  height: 225px;
+}
+.photos__photo {
+  width: 100%;
+  max-width: 395px;
+}
+/*# sourceMappingURL=photos.css.map */

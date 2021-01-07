@@ -4,13 +4,20 @@ Does:
 	- describes order's amount-input increment and decrement logic
 */
 
-// Draw all prices according to their default values //
-var pricesArray =
-	Array.from(document.getElementsByClassName("price__value"));
+// Drawing prices //
 
-pricesArray.forEach(function(price) {
-	price.textContent = price.dataset.price;
-});
+function drawPriceValues(class_name) {
+	/* Draw all prices by their class name according to their default values */
+	var pricesArray =
+		Array.from(document.getElementsByClassName(class_name));
+
+	pricesArray.forEach(function(price) {
+		price.textContent = price.dataset.price;
+	});
+}
+
+drawPriceValues("price__value")
+drawPriceValues("price__value-crossed")
 
 
 // Add events for each amount input //
@@ -23,16 +30,19 @@ amountsArray.forEach(function(amount) {
 });
 
 
-
 function priceChangeController(evt) {
 	/* Controls price value and calls appropriate functions for
-	manupulation with it. */
+	manipulation with it. */
 	let inputObject = evt.target;
+
 	let priceObject = inputObject.parentElement.parentElement
 		.querySelector(".price__value");
+	let priceCrossedObject = inputObject.parentElement.parentElement
+		.querySelector(".price__value-crossed");
+
 	let inputMaxValue = parseInt(inputObject.getAttribute("max"));
 	let priceDefaultPrice = parseInt(priceObject.dataset.price);
-	
+	 
 	if (inputObject.value == "" || 
 		parseInt(inputObject.value) > inputMaxValue) 
 	{

@@ -45,7 +45,7 @@ const FOOTER_PATTERN =
 					<div class="footer__right-bot">
 						<div class="footer__contact contacts">
 							<div class="contacts__item">
-								<a href="https://discord.gg/5kg2fZyF" class="discord-href" id="discord-href">
+								<a href="https://discord.gg/rt5NvfFZcw" class="discord-href" id="discord-href">
 									<img src="images/icons/discord.png" alt="" class="discord-href__img" width="48px" height="48px">
 								</a>
 							</div>
