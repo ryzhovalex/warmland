@@ -1,2 +1,166 @@
 // main: ../style.less
 
+@news-border: 1px solid rgba(250, 190, 88, 0.5);
+@color-hot: rgba(240, 52, 52, 1);
+
+@article-basis-width: 225px;
+@article-basis-height: 150px;
+
+
+// General //
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.8rem;
+}
+
+h3 {
+	font-size: 1.6rem;
+}
+
+h4 {
+	font-size: 1.2rem;
+}
+
+h3, h4 {
+	color: orange;
+}
+
+.news__inner {
+	display: flex;
+	flex-direction: column;
+
+	& a {
+		display: inline-block;
+	}
+
+	& a:hover {
+		background-color: rgba(255,255,255,0.3);
+	}
+}
+
+.news__title {
+	text-align: center;
+	text-transform: uppercase;
+
+	padding-bottom: 30px;
+	border-bottom: 2px solid orange;
+
+	margin: 50px 0 50px 0;
+}
+
+.news__block {
+	display: flex;
+	flex-direction: row;
+	border: @news-border;
+	width: 100%;
+}
+
+.col1 {
+	display: flex;
+	flex-direction: column;
+	width: 250px;
+	padding: 10px;
+	border-right: @news-border;
+}
+
+.col2 {
+	display: flex;
+	flex-direction: column;
+	width: 500px;
+	border-right: @news-border;
+}
+
+.col3 {
+	display: flex;
+	width: 450px;
+}
+
+.datetime {
+	color: @color-hot;
+	font-size: 1.15rem;
+}
+//--//
+
+
+// Headlines //
+	// -- Column 1
+	.hl-col1__title {
+		margin-bottom: 15px;
+	}
+
+	// -- Column 2
+	.hl-col2__top {
+		display: flex;
+		flex-direction: row;
+
+		padding: 10px;
+		height: @article-basis-height * 2;
+	}
+
+	.hl-col2__bot {
+		padding: 10px;
+	}
+
+	.hl-col2__title {
+		width: 140px;
+	}
+
+	.hl-col2__img {
+		width: 340px;
+	}
+
+	.hl-col2__description {
+		font-size: 1.15rem;
+	}
+
+	// -- Column 3
+	.h1-col3 {
+		flex-direction: row;
+	}
+
+	.hl-col3__left,
+	.h1-col3__right {
+		display: flex;
+		flex-direction: column;
+
+		width: 225px;
+	}
+
+	.hl-col3__left {
+		border-right: @news-border;
+	}
+//--//
+
+
+// Article //
+	.article {
+		width: @article-basis-width;
+		padding: 10px;
+
+		border-bottom: @news-border;
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+
+	.article__img {
+		width: 205px;
+		margin-bottom: 10px;
+	}
+
+	.article__title {
+		margin-bottom: 10px;
+	}
+
+	.article_type_vertical-img {
+		height: @article-basis-height * 2;
+	}
+
+	.article_type_vertical-noimg {
+		height: @article-basis-height;
+	}
+//--//

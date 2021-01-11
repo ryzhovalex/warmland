@@ -17,12 +17,16 @@
 	display: flex;
 	margin-bottom: 80px;
 	margin-right: 60px;
+
+	height: 200px;
 }
 
 .good__name {
 	text-transform: uppercase;
-	font-size: 20px;
+	font-size: 1.15rem;
 	font-weight: bold;
+
+	margin-bottom: 15px;
 }
 
 .good__left-col {
@@ -143,13 +147,15 @@ div[data-filter='service'] .good__price-info {
 	display: flex;
 
 	position: absolute;
-	bottom: 2%;
+	top: 60%;
 	left: 5%;
 
 	font-weight: bold;
 }
 
 .hot-offer__discount {
+	margin: 1em 0;
+
 	font-size: 1.15rem;
 	margin-right: 15px;
 	color: orange;
@@ -185,6 +191,10 @@ div[data-filter='service'] .good__price-info {
 }
 
 @media screen and (max-width: 400px) {
+	.hot-offers {
+		text-align: center;
+	}
+
 	.good__item  {
 		width: 220px;
 	}
@@ -195,5 +205,23 @@ div[data-filter='service'] .good__price-info {
 
 	.good__order {
 		margin-right: 25px;
+	}
+
+	.good__description {
+		line-height: 1rem;
+	}
+
+	.hot-offer {
+		top: 43.5%;
+		left: 53%;
+	}
+
+	div[data-filter='service'] .hot-offer {
+		top: 54.5%;
+		left: 55%;
+	}
+
+	.hot-offer__img {
+		display: none;
 	}
 }

@@ -1,18 +1,22 @@
 // main: ../style.less
 
 .photos {
-	margin-top: 80px;
-	text-align: center;
+	margin-top: 25px;
 }
 
-.photos__item {
-	display: inline-block;
-	width: 395px;
-	height: 225px;
+.photos__inner {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
 }
 
-.photos__photo {
-	width: 100%;
-	max-width: 395px; // each img decreases by -5 to fit container //origin: 400px
+
+/* Media */
+@media screen and (max-width: 400px) {
+	.photos__photo {
+		width: 100%;
+	}
 }
+
 

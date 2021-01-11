@@ -3,6 +3,10 @@
 function createNewGood(type, imgURL, name, description, 
 						price, isHotOffer=false, hotOfferDiscount=0) {
 
+	if (description.length > 72) {
+		console.warn(`Too long description at '${name}' with image '${imgURL}', small resolution render may be incorrect.`)
+	}
+
 	const ITEM_PATTERN =
 		`
 		<div class="good__left-col">
@@ -122,7 +126,7 @@ function createGoodList() {
 		3)
 	createNewGood(
 		'ingot', 'ingot-gold.png', 'Золото', 
-		'Это золото упорным трудом выкапывалось узниками коммунистического лагеря.', 
+		'Выкапывалось узниками коммунистического лагеря.', 
 		12, true, 40)
 	createNewGood(
 		'block', 'block-brick.png', 'Кирпичи', 
@@ -150,7 +154,7 @@ function createHotOffersList() {
 		8, true, 40)
 	createNewGood(
 		'ingot', 'ingot-gold.png', 'Золото', 
-		'Это золото упорным трудом выкапывалось узниками коммунистического лагеря.', 
+		'Выкапывалось узниками коммунистического лагеря.', 
 		12, true, 40)
 	createNewGood(
 		'service', 'service-help.png', 'Помощь на огороде', 

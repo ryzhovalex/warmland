@@ -2,6 +2,10 @@
 .about {
   margin: 50px 0;
 }
+.about__content {
+  display: flex;
+  flex-direction: column;
+}
 .about__title {
   text-align: center;
   text-transform: uppercase;
@@ -34,20 +38,20 @@
   border: 2px solid rgba(255, 255, 255, 0.3);
 }
 .state__description {
+  margin-top: 20px;
   font-size: 1.15rem;
 }
 .state__img-container {
   display: flex;
   flex-direction: column;
   width: 420px;
-  height: 250px;
 }
 .state__img-comment {
   text-align: center;
 }
 /* Villagers */
 .villagers {
-  margin-top: 0px;
+  margin-top: -100px;
 }
 .villagers__title {
   text-transform: uppercase;
