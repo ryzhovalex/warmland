@@ -50,7 +50,7 @@ const FOOTER_PATTERN =
 								</a>
 							</div>
 						</div>
-						<p class="footer__powered">Powered by: Creeper Explosive Software</p>
+						<p class="footer__powered">Powered by: Creeper Explosive Solutions</p>
 					</div>
 				</div>
 			</div>
