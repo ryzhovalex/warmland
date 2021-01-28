@@ -37,7 +37,7 @@ const FOOTER_PATTERN =
 
 				<div class="footer__right">
 					<nav class="nav nav-bot">
-						<a href="#" class="nav__item">Домой</a>
+						<a href="index.html" class="nav__item">Домой</a>
 						<a href="market.html" class="nav__item">Рынок</a>
 						<a href="blog.html" class="nav__item">Новости</a>
 						<a href="about.html" class="nav__item">О нас</a>

@@ -21,13 +21,6 @@ class Article {
 		this.href = options.href
 		this.type = options.type 
 		this.fullType = Article.ARTICLE_TYPE_PREFIX + this.type
-		
-		/* //!// Throw it to children classes 
-		this.hasQuote = false
-		this.hasAuthor = false
-		this.hasExtra = false
-		this.hasBack = false
-		*/
 
 		this.articleObj = 
 			this.assemblyElement({
@@ -124,6 +117,8 @@ class ArticleBasic extends Article {
 	static DSCR_TAG = "p"
 	static IMG_TAG = "img"
 
+	static NO_DSCR_PROVIDED_TYPES = ["main-stretchimg"]
+
 	static TITLE_CLASS = Article.ARTICLE_BASIC_CLASS + "__" + "title"
 	static DSCR_CLASS = Article.ARTICLE_BASIC_CLASS + "__" + "dscr"
 	static IMG_CLASS = Article.ARTICLE_BASIC_CLASS + "__" + "img"
@@ -139,7 +134,7 @@ class ArticleBasic extends Article {
 			this.hasTitle = true
 		}
 
-		if (options.dscr == undefined || options.dscr == "") {
+		if (options.dscr == undefined || options.dscr == "" || ArticleBasic.NO_DSCR_PROVIDED_TYPES.includes(this.type)) {
 			this.dscr = ""
 			this.hasDscr = false
 		} else {
@@ -147,7 +142,7 @@ class ArticleBasic extends Article {
 			this.hasDscr = true
 		}
 
-		if (options.imgURL == undefined || options.imgURL == "") {
+		if (options.imgURL == undefined || options.imgURL == "" || this.type.includes("noimg")) {
 			this.imgURL = ""
 			this.hasImg = false
 		} else {
@@ -220,7 +215,9 @@ class ArticleQuote extends Article {
 		left: Article.ARTICLE_BASIC_CLASS + "__" + "left",
 		right: Article.ARTICLE_BASIC_CLASS + "__" + "right"
 	}
+
 	static NO_AUTHOR_CONTAINER_TYPES = ["quote-small"]
+	static NO_IMG_TYPES = ["quote-small"]
 
 	static QUOTE_TAG = "h4"
 	static AUTHOR_TAG = "p"
@@ -256,7 +253,7 @@ class ArticleQuote extends Article {
 			this.hasAuthor = true
 		}
 
-		if (options.authorImgURL == undefined || options.authorImgURL == "") {
+		if (options.authorImgURL == undefined || options.authorImgURL == "" || ArticleQuote.NO_IMG_TYPES.includes(this.type)) {
 			this.authorImgURL = ""
 			this.hasAuthorImg = false
 		} else {
@@ -269,7 +266,7 @@ class ArticleQuote extends Article {
 			this.hasMainImg = false
 		} else {
 			if (this.type != ArticleQuote.MAIN_TYPE) {
-				throw Error(`Article: ${this.articleObj}, was given a main image URL and hasn't set to quote-main type.`)
+				throw Error(`Article with title: "${this.title}", was given a main image URL and hasn't set to quote-main type.`)
 			}
 
 			this.mainImgURL = options.mainImgURL
@@ -328,7 +325,10 @@ class ArticleQuote extends Article {
 		let childrenArr = []
 
 		if (ArticleQuote.NO_AUTHOR_CONTAINER_TYPES.includes(this.type)) {
-			console.warn(`Article: ${this.articleObj}, was given an image URL and has set to quote-small type, which doesn't support images.`)
+			
+			if (this.authorImgURL == undefined || this.mainImgURL == undefined) {
+				console.warn(`Article with quote: "${this.quote}", was given an image URL and has set to quote-small type, which doesn't support images.`)
+			}
 
 			if (this.hasQuote) {
 				childrenArr.push(this.quoteObj)
@@ -382,18 +382,331 @@ class ArticleQuote extends Article {
 }
 
 
-/////////////////
-a = new ArticleQuote({
-	href: "#",
-	type: "quote-basic", 
-	quote: "Я всегда любил молоко",
-	author: "Иосиф",
-	authorImgURL: "images/event-wheat2.jpg"
-})
+function generateNews() {
+	/* There is a full prototype pattern for all three news block - hs, sp, op. */
 
-a.put({
-	block: "hs",
-	column: "col3",
-	subcolumn: "left"
-})
+	new ArticleBasic({
+		href: "#",
+		type: "main", 
+		title: "Реактор взорвался",
+		dscr: "На ядерной станции, которая питала нашу любимую деревню, произошла критическая авария. Всё население было вынуждено покинуть место жительства.",
+		imgURL: "images/news/nuclear-meltdown.jpg"
+	}).put({
+		block: "hs",
+		column: "col2"
+	})
+
+	new ArticleBasic({
+		href: "#",
+		type: "horizontal-img", 
+		title: "Новые меры безопасности",
+		dscr: "В связи с последней аварией, ядерный регламент будет ужесточён.",
+		imgURL: "images/news/nuclear-plant-v2.png"
+	}).put({
+		block: "hs",
+		column: "col2"
+	})
+
+	new ArticleBasic({
+		href: "#",
+		type: "horizontal-img", 
+		title: "Великое переселение",
+		dscr: "В результате катастрофы жители Warmland отправились в великий поход на новые земли.",
+		imgURL: "images/news/village.jpg"
+	}).put({
+		block: "hs",
+		column: "col2"
+	})
+
+	new ArticleBasic({
+		href: "#",
+		type: "vertical-img", 
+		title: "Клуб археологов",
+		dscr: "Записывайтесь в клуб любителей артефактов и секретов. Бесплатная лопата при подписании хартии!",
+		imgURL: "images/news/forest-villagers.png"
+	}).put({
+		block: "hs",
+		column: "col3",
+		subcolumn: "left"
+	})
+
+	new ArticleBasic({
+		href: "#",
+		type: "vertical-noimg", 
+		title: "Помидорный обман",
+		dscr: "Помидоры марки 'Боб и друзья' оказались радиоактивными."
+	}).put({
+		block: "hs",
+		column: "col3",
+		subcolumn: "left"
+	})
+
+	new ArticleBasic({
+		href: "#",
+		type: "vertical-noimg", 
+		title: "Прорыв",
+		dscr: "Исследователи национального университета Большого ботинка изобрели удобную ложку для обуви."
+	}).put({
+		block: "hs",
+		column: "col3",
+		subcolumn: "left"
+	})
+
+	new ArticleBasic({
+		href: "#",
+		type: "vertical-noimg", 
+		title: "Пивное безумие",
+		dscr: "Мужчина получил многочисленные ушибы, пытаясь достать ящик с пивом."
+	}).put({
+		block: "hs",
+		column: "col3",
+		subcolumn: "right"
+	})
+
+	new ArticleBasic({
+		href: "#",
+		type: "vertical-noimg", 
+		title: "Диванный клуб",
+		dscr: "В клуб любителей посидеть привезли два новых дивана."
+	}).put({
+		block: "hs",
+		column: "col3",
+		subcolumn: "right"
+	})
+
+	new ArticleBasic({
+		href: "#",
+		type: "vertical-noimg", 
+		title: "Научный провал",
+		dscr: "Учёный пытался открыть философский камень, но получился королевский слайм."
+	}).put({
+		block: "hs",
+		column: "col3",
+		subcolumn: "right"
+	})
+
+	new ArticleBasic({
+		href: "#",
+		type: "vertical-noimg", 
+		title: "Вторжение",
+		dscr: "Огромная армия королевских слаймов захватила восточное побережье."
+	}).put({
+		block: "hs",
+		column: "col3",
+		subcolumn: "right"
+	})
+
+	new ArticleBasic({
+		href: "#",
+		type: "main-stretchimg", 
+		title: "Радиация - как спастись или как приобщиться",
+		imgURL: "images/news/nuclear-plant.png"
+	}).put({
+		block: "sp",
+		column: "col2",
+		subcolumn: "top"
+	})
+
+	new ArticleBasic({
+		href: "#",
+		type: "vertical-img", 
+		title: "Вкусная картошка",
+		dscr: "Выращивание картошки у себя в подвале. Иллюзия или реальность? Рассказывает главный фермер деревни.",
+		imgURL: "images/news/potato-farm.png"
+	}).put({
+		block: "sp",
+		column: "col2",
+		subcolumn: "bot"
+	})
+
+	new ArticleBasic({
+		href: "#",
+		type: "vertical-noimg", 
+		title: "Нападение пингвинов",
+		dscr: "Основные правила выживания в ледяной клетке."
+	}).put({
+		block: "sp",
+		column: "col2",
+		subcolumn: "bot"
+	})
+
+	new ArticleBasic({
+		href: "#",
+		type: "vertical-noimg", 
+		title: "Забор: делаем правильно",
+		dscr: "Подробные инструкции по постройке забора."
+	}).put({
+		block: "sp",
+		column: "col2",
+		subcolumn: "bot"
+	})
+
+	new ArticleBasic({
+		href: "#",
+		type: "vertical-noimg", 
+		title: "Большая морковь",
+		dscr: "Специалист с портала carrothub рассказывает о главных правилах успешных агрономов."
+	}).put({
+		block: "sp",
+		column: "col2",
+		subcolumn: "bot"
+	})
+
+	new ArticleBasic({
+		href: "#",
+		type: "vertical-noimg", 
+		title: "Вкусные зелья",
+		dscr: "Приготовление зелий у себя дома. Опасно ли это? Рассказывает безумный химик Игорь."
+	}).put({
+		block: "sp",
+		column: "col2",
+		subcolumn: "bot"
+	})
+
+	new ArticleBasic({
+		href: "#",
+		type: "vertical-big", 
+		title: "Главные овощи этого сезона - подробный гайд от председателя колхоза",
+		dscr: "Говоря про овощи, важно отметить, что сегодня, в завтрашний день, не все могут объективно оценивать эту проблему рационально, вернее, мало кто может это делать. Таким образом, овощепроизводство, или, как говорила моя бабушка, овощевыращивание, содержит в себе очень много тонкостей, которые нужно учитывать. Что нужно в первую очередь для любого овоща? Конечно же, вода. А вода, знаете ли, не в километрах измеряется. Это расстояние измеряется в километрах, или вернее даже в часах. А овощи, они как жизнь - важно не упустить свою возможность, и не проспать момент, как говорил мой дед. Поэтому главный совет - поливайте вашу картошку каждый день, а капусту, как минимум, два раза в неделю. Что касаемо удобрений...",
+		imgURL: "images/event-wheat.png"
+	}).put({
+		block: "sp",
+		column: "col3"
+	})
+
+	new ArticleQuote({
+		href: "#",
+		type: "quote-main", 
+		quote: "Мне приснился сон, где мой огромный летающий бункер уничтожал всех смертоносным лазером... и ты там тоже был!",
+		author: "Адольф",
+		authorImgURL: "images/news/authors/hitler.png",
+		mainImgURL: "images/news/flying-bunker.jpg"
+	}).put({
+		block: "op",
+		column: "col2",
+		subcolumn: "top"
+	})
+
+	new ArticleQuote({
+		href: "#",
+		type: "quote-basic", 
+		quote: "Скоро, с вашими так называемыми реакторами, вся наша деревня превратится в радиоактивное болото!",
+		author: "Семён",
+		authorImgURL: "images/news/authors/semen.png"
+	}).put({
+		block: "op",
+		column: "col2",
+		subcolumn: "bot"
+	})
+
+	new ArticleQuote({
+		href: "#",
+		type: "quote-basic", 
+		quote: "В школе меня называли сказочником, а я вырос и построил себе огромный дом на окраине деревни!",
+		author: "Боб",
+		authorImgURL: "images/news/authors/bob.png"
+	}).put({
+		block: "op",
+		column: "col2",
+		subcolumn: "bot"
+	})
+
+	new ArticleQuote({
+		href: "#",
+		type: "quote-basic", 
+		quote: "Что касается моей огромной тюрьмы на горе? Там нет пленных, только предатели.",
+		author: "Иосиф",
+		authorImgURL: "images/news/authors/stalin.png"
+	}).put({
+		block: "op",
+		column: "col2",
+		subcolumn: "bot"
+	})
+
+	new ArticleQuote({
+		href: "#",
+		type: "quote-basic", 
+		quote: "Заходите в мой БОЛЬШОЙ магазин мои праведные друзья!",
+		author: "Мухаммед",
+		authorImgURL: "images/news/authors/muhammad.png"
+	}).put({
+		block: "op",
+		column: "col2",
+		subcolumn: "bot"
+	})
+
+	new ArticleQuote({
+		href: "#",
+		type: "quote-small", 
+		quote: "Эх, сальца бы хорошего сейчас. С черным хлебушком. Да с чесночком!",
+		author: "Сталкер"
+	}).put({
+		block: "op",
+		column: "col3"
+	})
+
+	new ArticleQuote({
+		href: "#",
+		type: "quote-small", 
+		quote: "Когда я говорю о фарме незерита, я имею в ввиду пару сундуков за 10 минут.",
+		author: "Слоупок"
+	}).put({
+		block: "op",
+		column: "col3"
+	})
+
+	new ArticleQuote({
+		href: "#",
+		type: "quote-small", 
+		quote: "Я построил свой дом во всех локациях! Ну и кто смеётся теперь?",
+		author: "Тодд"
+	}).put({
+		block: "op",
+		column: "col3"
+	})
+
+	new ArticleQuote({
+		href: "#",
+		type: "quote-small", 
+		quote: "Мы три часа летели, и наконец мы сели, туда куда хотели, на пляжный островок.",
+		author: "Александр П."
+	}).put({
+		block: "op",
+		column: "col3"
+	})
+}
+
+
+//
+/* Gives information about maintenance on page if it doesn't support this resoulition */
+
+const resolution = window.screen.width * window.devicePixelRatio
+const resolutionPoint = 1250
+const maintenanceMessageText = "Ой... Страница в разработке для вашего разрешения. Но пока что можете посмотреть как Стив играет с пёсиком."
+const maintenanceImgURL = "images/steeve-dog.jpg"
+
+if (resolution < resolutionPoint) {
+	const newsInner = document.querySelector(".news__inner")
+	newsInner.innerHTML = ""
+
+	const maintenanceContainer = document.createElement("div")
+	const maintenanceMessage = document.createElement("p")
+	const maintenanceImg = document.createElement("img")
+
+	maintenanceContainer.classList.add("maintenance")
+	maintenanceMessage.classList.add("maintenance__message")
+	maintenanceImg.classList.add("maintenance__img")
+
+	maintenanceMessage.textContent = maintenanceMessageText
+	maintenanceImg.src = maintenanceImgURL
+
+	maintenanceContainer.appendChild(maintenanceMessage)
+	maintenanceContainer.appendChild(maintenanceImg)
+	newsInner.appendChild(maintenanceContainer)
+} else {
+	generateNews()
+}
+
+
+
 

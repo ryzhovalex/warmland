@@ -88,16 +88,6 @@ h3, h4 {
 	border-bottom: @news-border;
 }
 
-.article__title {
-}
-
-.article__dscr {
-
-}
-
-.article__img {
-}
-
 .article_type_main {
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -209,6 +199,7 @@ h3, h4 {
 	flex-direction: column;
 	width: @article-width-vertical;
 	height: @article-height * 2;
+	text-align: center;
 
 	& .article__title {
 		margin-bottom: @article-inner-margin;
@@ -226,6 +217,7 @@ h3, h4 {
 .article_type_vertical-noimg {
 	flex-direction: column;
 	width: @article-width-vertical;
+	text-align: center;
 
 	& .article__title {
 		margin-bottom: @article-inner-margin;

@@ -1,5 +1,7 @@
 // main: ../style.less
 
+@about-img-width: 420px;
+
 /* General */
 .about {
 	margin: 50px 0;
@@ -60,7 +62,7 @@
 	display: flex;
 	flex-direction: column;
 
-	width: 420px;
+	width: @about-img-width;
 }
 
 .state__img-comment {
@@ -124,20 +126,6 @@
 
 
 /* Media */
-@media screen and (max-width: 800px) {
-	.state {
-		flex-direction: column;
-	}
-
-	.state__img {
-		width: 100%;
-	}
-
-	.state__content {
-		margin-top: 25px;
-	}
-}
-
 @media screen and (max-width: 830px) {
 	.quote {
 		max-width: 800px;
@@ -158,3 +146,22 @@
 		margin-bottom: 25px;
 	}
 }
+
+@media screen and (max-width: 800px) {
+	.state {
+		flex-direction: column;
+	}
+
+	.state__content {
+		margin-top: 25px;
+		margin-left: 15px;
+	}
+}
+
+@media screen and (max-width: @about-img-width) {
+	.state__img-container {
+		width: 100%;
+	}
+}
+
+
