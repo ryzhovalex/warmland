@@ -31,7 +31,6 @@ function drawPricesInit() {
 	drawPriceValues("price__value-crossed")
 }
 
-
 drawPricesInit()
 
 // add events for each amount input
@@ -55,31 +54,40 @@ function priceChangeController(evt) {
 		.querySelector(".price__value-crossed")
 
 	let inputMaxValue = parseInt(inputObject.getAttribute("max"))
-	let priceDefaultPrice = parseInt(priceObject.dataset.price)
 	 
 	if (inputObject.value == "" || 
 		parseInt(inputObject.value) > inputMaxValue) 
 	{
 		orderRestoreDefaultValues(
-			inputObject, priceObject, priceDefaultPrice)
+			inputObject, priceObject, priceCrossedObject)
 	} else {
-		priceChangeValue(inputObject, priceObject, priceDefaultPrice)
+		priceChangeValue(inputObject, priceObject)
+		if (priceCrossedObject != null) {
+			priceChangeValue(inputObject, priceCrossedObject)
+		}	
 	}
 }
 
 
-function priceChangeValue(input, priceObject, priceDefaultPrice) {
+function priceChangeValue(input, priceObject) {
 	/* Change value of price according to amount of input value. */
-	let priceCurrentPrice = priceDefaultPrice * parseInt(input.value)
-	priceObject.textContent = priceCurrentPrice
+	let priceActualPrice = getPriceByObject(priceObject) * parseInt(input.value)
+	priceObject.textContent = priceActualPrice
+}
+
+
+function getPriceByObject(object) {
+	/* Returns parsed to int dataset price field of given object. */
+	return parseInt(object.dataset.price)
 }
 
 
 function orderRestoreDefaultValues
-	(inputObject, priceObject, priceDefaultPrice) {
+	(inputObject, priceObject, priceCrossedObject) {
 	/* Reset value of input and price to default ...
 	... if it is empty string. */
-	priceObject.textContent = priceDefaultPrice
+	priceObject.textContent = getPriceByObject(priceObject)
+	priceCrossedObject.textContent = getPriceByObject(priceCrossedObject)
 	inputObject.value = INPUT_DEFAULT_VALUE
 }
 
