@@ -10,14 +10,14 @@ function createNewGood(type, imgURL, name, description,
 	const ITEM_PATTERN =
 		`
 		<div class="good__left-col">
-			<img src=${'images/goods/' + imgURL} class="good__img">
+			<img src=${'/images/goods/' + imgURL} class="good__img">
 		</div>
 		<div class="good__right-col">
 			<h3 class="good__name">${name}</h3>
 			<p class="good__description">${description}</p>
 			<div class="good__price">
 				<form action="URL" class="good__order-form order-form">
-					<input type="submit" href="#" class="order-form__btn btn" value="Order">
+					<input type="submit" href="#" class="order-form__btn btn" value="Заказ">
 					<input type="number" class="order-form__amount" min="1" max="100" value="1">
 				</form>
 				<span class="good__price-info price">
@@ -37,7 +37,7 @@ function createNewGood(type, imgURL, name, description,
 			<p class="good__description">${description}</p>
 			<div class="good__price good__price_service">
 				<form action="URL" class="good__order-form order-form order-form_service">
-					<input type="submit" href="#" class="order-form__btn btn" value="Order">
+					<input type="submit" href="#" class="order-form__btn btn" value="Заказ">
 				</form>
 				<span class="good__price-info price">
 					<b class="price__value" data-price="${price}"></b>

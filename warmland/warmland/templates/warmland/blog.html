@@ -3,7 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.css">
+	{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'warmland/css/style.css' %}">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
 	<title>Warmland</title>
@@ -87,14 +88,12 @@
 		</div> <!-- ./news -->
 	</main>
 
-
+	
 	<!-- JS -->
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
-	</script>
-	<script src="js/newsGenerator.js"></script>
-	<script src="js/patternGenerator.js"></script>
-	<script src="js/datetime.js"></script>
-	<script src="js/popupNav.js"></script>
-	<script src="js/clipPopup.js"></script>
+	<script src="{% static 'warmland/js/newsGenerator.js' %}"></script>
+	<script src="{% static 'warmland/js/patternGenerator.js' %}"></script>
+	<script src="{% static 'warmland/js/datetime.js' %}"></script>
+	<script src="{% static 'warmland/js/popupNav.js' %}"></script>
+	<script src="{% static 'warmland/js/clipPopup.js' %}"></script>
 </body>
 </html>

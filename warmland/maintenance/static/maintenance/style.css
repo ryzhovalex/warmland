@@ -1,0 +1,14 @@
+.maintenance {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.maintenance__msg {
+	font-size: 20px;
+	font-weight: bold;
+	width: 100%;
+}
+
+.maintenance-img {
+
+}

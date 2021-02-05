@@ -8,7 +8,7 @@ const HEADER_PATTERN =
 					<img src="images/logo-hoe.png" alt="hoe" width="60px" height="60px">
 				</div>
 				<div class="title__content">
-					<a href="index.html">WarmLand</a>
+					<a href="{% url 'warmland:index' %}">WarmLand</a>
 				</div>
 			</div>
 			<div class="burger" id="burger"></div>
@@ -19,8 +19,8 @@ const HEADER_PATTERN =
 				<a href="about.html" class="nav__item headitem">О нас</a>
 			</nav>
 			<div class="connect">
-				<p class="connect__content" onclick="clickCopy('ho.mcplay.in:25632')">	
-					ho.mcplay.in:25632
+				<p class="connect__content" onclick="clickCopy('ho.mcplay.in:25657')">	
+					ho.mcplay.in:25657
 					<span class="popup-content" id="connectPopup">Скопировано в буфер обмена.</span>
 				</p>	
 			</div>
