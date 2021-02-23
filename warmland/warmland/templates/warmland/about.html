@@ -1,126 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	{% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'warmland/css/style.css' %}">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
-	<title>Warmland</title>
-</head>
-<body id="about">
-	<main>
-		<div class="about">
-			<div class="about__inner container1200">
-				<div class="about__title">
-					Кто же мы?
+{% extends "warmland/base.html" %}
+{% load static %}
+{% block page_id %}home{% endblock %}
+
+
+{% block content %}
+<div class="about">
+	<div class="about__inner container1200">
+		<div class="about__title">
+			Кто же мы?
+		</div>
+
+		<div class="about__content">
+			<div class="about__state state">
+				<div class="state__img-container">
+					<img src="{% static 'warmland/images/funny-building.jpg' %}" class="state__img">
+					<span class="state__img-comment small-comment">на фото: Удобный дом в центре деревни с подключенным водопроводом.</span>
 				</div>
+				<div class="state__content">
+					<h2 class="state__title">Строители</h2>
+					<p class="state__description">Наши уникальные постройки легко узнаваемы и являются архитектурно-обоснованными.</p>
+				</div>
+			</div>
 
-				<div class="about__content">
-					<div class="about__state state">
-						<div class="state__img-container">
-							<img src="images/funny-building.jpg" class="state__img">
-							<span class="state__img-comment small-comment">на фото: Удобный дом в центре деревни с подключенным водопроводом.</span>
-						</div>
-						<div class="state__content">
-							<h2 class="state__title">Строители</h2>
-							<p class="state__description">Наши уникальные постройки легко узнаваемы и являются архитектурно-обоснованными.</p>
-						</div>
-					</div>
+			<div class="about__state state">
+				<div class="state__img-container">
+					<img src="{% static 'warmland/images/funny-farmer.jpg' %}" class="state__img">
+					<span class="state__img-comment small-comment">на фото: Абсолютно безопасный бывший робот-убийца перепрограммированный на сбор пшеницы.</span>
+				</div>
+				<div class="state__content">
+					<h2 class="state__title">Фермеры</h2>
+					<p class="state__description">Продукты нашего производства на 99% натуральны, потому что выращены на костях убитых в пещерах скелетов <span class="small-comment">(убийство скелетов одобрено greenpeace)</span></p>
+				</div>
+			</div>
 
-					<div class="about__state state">
-						<div class="state__img-container">
-							<img src="images/funny-farmer.jpg" class="state__img">
-							<span class="state__img-comment small-comment">на фото: Абсолютно безопасный бывший робот-убийца перепрограммированный на сбор пшеницы.</span>
-						</div>
-						<div class="state__content">
-							<h2 class="state__title">Фермеры</h2>
-							<p class="state__description">Продукты нашего производства на 99% натуральны, потому что выращены на костях убитых в пещерах скелетов <span class="small-comment">(убийство скелетов одобрено greenpeace)</span></p>
-						</div>
-					</div>
-
-					<div class="about__state state">
-						<div class="state__img-container">
-							<img src="images/about-engineer.jpg" class="state__img">
-							<span class="state__img-comment small-comment">на фото: Айдронный коллайдер седьмого поколения из бункера господина Адольфа.</span>
-						</div>
-						<div class="state__content">
-							<h2 class="state__title">Инженеры</h2>
-							<p class="state__description">Наши технологические прорывы пьянят мозг и будоражат воображение.</p>
-						</div>
-					</div>
+			<div class="about__state state">
+				<div class="state__img-container">
+					<img src="{% static 'warmland/images/about-engineer.jpg' %}" class="state__img">
+					<span class="state__img-comment small-comment">на фото: Айдронный коллайдер седьмого поколения из бункера господина Адольфа.</span>
+				</div>
+				<div class="state__content">
+					<h2 class="state__title">Инженеры</h2>
+					<p class="state__description">Наши технологические прорывы пьянят мозг и будоражат воображение.</p>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
 
-		<div class="villagers">
-			<div class="container1000 villagers__inner">
-				<h2 class="villagers__title">Наши сельчане</h2>
+<div class="villagers">
+	<div class="container1000 villagers__inner">
+		<h2 class="villagers__title">Наши сельчане</h2>
 
-				<div class="villagers__quote quote">
-					<div class="quote__left-col">
-						<div class="quote__img">
-							<img src="images/villagers/villager-hitler.png" alt="" width="100" height="200">
-						</div>
-					</div>
-					<div class="quote__right-col">
-						<p class="quote__text">
-							„В последнем счете всегда побеждает только инстинкт самосохранения. Под давлением этого инстинкта вся так называемая человечность, являющаяся только выражением чего-то среднего между глупостью, трусостью и самомнением, тает как снег на весеннем солнце.“
-						</p>
-						<p class="quote__author">- Адольф, владелец бункера</p>
-					</div>
-				</div>
-
-				<div class="villagers__quote quote">
-					<div class="quote__left-col">
-						<div class="quote__img">
-							<img src="images/villagers/villager-bum.png" alt="" width="100" height="200">
-						</div>
-					</div>
-					<div class="quote__right-col">
-						<p class="quote__text">
-							„Что бы ты ни делал, делай это хорошо. Совершенствуй свое искусство, даже если жаришь котлеты в Макдоналдсе. Не каждый должен становиться рэпером. Будь гребаным асом в мире котлет и помни, что есть что-то, чего не могу я. Например, я ни хрена не смыслю в гольфе.“
-						</p>
-						<p class="quote__author">- Боб, бездельник</p>
-					</div>
-				</div>
-
-				<div class="villagers__quote quote">
-					<div class="quote__left-col">
-						<div class="quote__img">
-							<img src="images/villagers/villager-stalin.png" alt="" width="100" height="200">
-						</div>
-					</div>
-					<div class="quote__right-col">
-						<p class="quote__text">
-							„Обо мне говорят, что я чудовище, а я, видите, шучу по этому поводу. Значит, я не так и ужасен.“
-						</p>
-						<p class="quote__author">- Иосиф, вождь коммунизма</p>
-					</div>
-				</div>
-
-				<div class="villagers__quote quote villagers__quote_order_lastchild">
-					<div class="quote__left-col">
-						<div class="quote__img">
-							<img src="images/villagers/villager-miner.png" alt="" width="100" height="200">
-						</div>
-					</div>
-					<div class="quote__right-col">
-						<p class="quote__text">
-							„Коллектив у нас хороший. Люди — дерьмо!“
-						</p>
-						<p class="quote__author">- Семён, председатель колхоза</p>
-					</div>
+		<div class="villagers__quote quote">
+			<div class="quote__left-col">
+				<div class="quote__img">
+					<img src="{% static 'warmland/images/villagers/villager-hitler.png' %}" alt="" width="100" height="200">
 				</div>
 			</div>
+			<div class="quote__right-col">
+				<p class="quote__text">
+					„В последнем счете всегда побеждает только инстинкт самосохранения. Под давлением этого инстинкта вся так называемая человечность, являющаяся только выражением чего-то среднего между глупостью, трусостью и самомнением, тает как снег на весеннем солнце.“
+				</p>
+				<p class="quote__author">- Адольф, владелец бункера</p>
+			</div>
 		</div>
-	</main>
 
+		<div class="villagers__quote quote">
+			<div class="quote__left-col">
+				<div class="quote__img">
+					<img src="{% static 'warmland/images/villagers/villager-bum.png' %}" alt="" width="100" height="200">
+				</div>
+			</div>
+			<div class="quote__right-col">
+				<p class="quote__text">
+					„Что бы ты ни делал, делай это хорошо. Совершенствуй свое искусство, даже если жаришь котлеты в Макдоналдсе. Не каждый должен становиться рэпером. Будь гребаным асом в мире котлет и помни, что есть что-то, чего не могу я. Например, я ни хрена не смыслю в гольфе.“
+				</p>
+				<p class="quote__author">- Боб, бездельник</p>
+			</div>
+		</div>
 
-	<!-- JS -->
-	<script src="{% static 'warmland/js/patternGenerator.js' %}"></script>
-	<script src="{% static 'warmland/js/popupNav.js' %}"></script>
-	<script src="{% static 'warmland/js/clipPopup.js' %}"></script>
-</body>
-</html>
+		<div class="villagers__quote quote">
+			<div class="quote__left-col">
+				<div class="quote__img">
+					<img src="{% static 'warmland/images/villagers/villager-stalin.png' %}" alt="" width="100" height="200">
+				</div>
+			</div>
+			<div class="quote__right-col">
+				<p class="quote__text">
+					„Обо мне говорят, что я чудовище, а я, видите, шучу по этому поводу. Значит, я не так и ужасен.“
+				</p>
+				<p class="quote__author">- Иосиф, вождь коммунизма</p>
+			</div>
+		</div>
+
+		<div class="villagers__quote quote villagers__quote_order_lastchild">
+			<div class="quote__left-col">
+				<div class="quote__img">
+					<img src="{% static 'warmland/images/villagers/villager-miner.png' %}" alt="" width="100" height="200">
+				</div>
+			</div>
+			<div class="quote__right-col">
+				<p class="quote__text">
+					„Коллектив у нас хороший. Люди — дерьмо!“
+				</p>
+				<p class="quote__author">- Семён, председатель колхоза</p>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

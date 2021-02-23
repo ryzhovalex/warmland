@@ -1,0 +1,27 @@
+// main: ../style.less
+
+.photos {
+	margin-top: 25px;
+}
+
+.photos__inner {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.photos__photo {
+	width: 400px;
+	height: 225px;
+}
+
+
+/* Media */
+@media screen and (max-width: 400px) {
+	.photos__photo {
+		width: 100%;
+	}
+}
+
+

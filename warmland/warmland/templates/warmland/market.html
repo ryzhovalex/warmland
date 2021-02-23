@@ -1,75 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	{% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'warmland/css/style.css' %}">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
-	<title>Warmland</title>
-</head>
-<body id="market">
-	<main>
-		<div class="market-head">
-			<div class="market-head__inner container1200">
-				<h2 class="market-head__title">Рынок</h2>
-				<div class="market-head__search-container">
-					<input class="market-head__search" type="text" value="search" id="market-search">
-					<button class="market-head__search-clear" id="search-clear">
-						<img src="images/icons/cross.svg" width="16px" height="16px">
-					</button>
-				</div>
-			</div> <!-- ./market-head__inner -->
-		</div> <!-- ./market-head -->
+{% extends "warmland/base.html" %}
+{% load static %}
+{% block page_id %}home{% endblock %}
 
-		<div class="selection">
-			<div class="selection__inner container1200">
-				<div class="selection__left-col">
-					<div class="selection__sorter">
-						<img src="images/icons/up-arrow.svg" alt="" class="selection__arrow-up" width="53px" height="28px" style="display:none">
-						<img src="images/icons/dot.svg" alt="" class="selection__dot" width="35px" height="20px" style="display:inline-block">
-						<img src="images/icons/down-arrow.svg" alt="" class="selection__arrow-down" width="53px" height="28px" style="display:none">
-						<button class="selection__btn selection__btn_type_sort" id="sort-name" data-sortup="none">Имя (А-Я)</button>
+
+{% block content %}
+<div class="market-head">
+	<div class="market-head__inner container1200">
+		<h2 class="market-head__title">Рынок</h2>
+		<div class="market-head__search-container">
+			<input class="market-head__search" type="text" value="search" id="market-search">
+			<button class="market-head__search-clear" id="search-clear">
+				<img src="images/icons/cross.svg" width="16px" height="16px">
+			</button>
+		</div>
+	</div> <!-- ./market-head__inner -->
+</div> <!-- ./market-head -->
+
+<div class="selection">
+	<div class="selection__inner container1200">
+		<div class="selection__left-col">
+			<div class="selection__sorter">
+				<img src="{% static 'warmland/images/icons/up-arrow.svg' %}" alt="" class="selection__arrow-up" width="53px" height="28px" style="display:none">
+				<img src="{% static 'warmland/images/icons/dot.svg' %}" alt="" class="selection__dot" width="35px" height="20px" style="display:inline-block">
+				<img src="{% static 'warmland/images/icons/down-arrow.svg' %}" alt="" class="selection__arrow-down" width="53px" height="28px" style="display:none">
+				<button class="selection__btn selection__btn_type_sort" id="sort-name" data-sortup="none">Имя (А-Я)</button>
+			</div>
+			<div class="selection__sorter selection__sorter_pos_last">
+				<img src="{% static 'warmland/images/icons/up-arrow.svg' %}" alt="" class="selection__arrow-up" width="53px" height="28px" style="display:none">
+				<img src="{% static 'warmland/images/icons/dot.svg' %}" alt="" class="selection__dot" width="35px" height="20px" style="display:inline-block">
+				<img src="{% static 'warmland/images/icons/down-arrow.svg' %}" alt="" class="selection__arrow-down" width="53px" height="28px" style="display:none">
+				<button class="selection__btn selection__btn_type_sort" id="sort-price" data-sortup="none">Цена</button>
+			</div>
+		</div>
+		<div class="selection__right-col">
+			<label>
+				<span class="selection__selector-name">Тип:</span>
+				<select name="type-filter" id="type-filter" class="selection__type-filter">
+					<option value="all">Всё</option>
+					<option value="food">Еда</option>
+					<option value="ingot">Слитки</option>
+					<option value="block">Блоки</option>
+					<option value="material">Материалы</option>
+					<option value="service">Услуги</option>
+				</select>	
+			</label>	
+		</div>
+	</div> <!-- ./selection__inner -->
+</div> <!-- ./selection -->
+
+<div class="good container1000">
+	<p class="not-found" id="good-not-found-msg">Нет такого товара :-(</p>
+	<div class="good__inner" id="good-list">
+		
+		{% if latest_good_list %}
+            {% for good in latest_good_list %}
+        		{% if good.good_type == "service" %}
+            		<div class="good__item" dataset-filter="{{ good.good_type }}" dataset-hotoffer="{{ good.is_hot_offer }}">
+			            <div class="good__left-col">
+							{% with 'warmland/images/goods/'|add:good.img_url as image_static %}
+								<img src="{% static image_static %}" class="good__img">
+							{% endwith %}
+						</div>
+						<div class="good__right-col">
+							<h3 class="good__name">{{ good.name }}</h3>
+							<p class="good__description">{{ good.description }}</p>
+							<div class="good__price good__price_service">
+								<form action="URL" class="good__order-form order-form order-form_service">
+									<input type="submit" href="#" class="order-form__btn btn" value="Заказ">
+								</form>
+								<span class="good__price-info price">
+									<b class="price__value" data-price="{{ good.price }}"></b>
+									<img src="{% static 'warmland/images/icons/coin.png' %}" class="price__img">
+								</span>
+							</div>
+						</div>
+				{% else %}
+					<div class="good__item" dataset-filter="{{ good.good_type }}" dataset-hotoffer="{{ good.is_hot_offer }}">
+		                <div class="good__left-col">
+		                	{% with 'warmland/images/goods/'|add:good.img_url as image_static %}
+								<img src="{% static image_static %}" class="good__img">
+							{% endwith %}
+						</div>
+						<div class="good__right-col">
+							<h3 class="good__name">{{ good.name }}</h3>
+							<p class="good__description">{{ good.description }}</p>
+							<div class="good__price">
+								<form action="URL" class="good__order-form order-form">
+									<input type="submit" href="#" class="order-form__btn btn" value="Заказ">
+									<input type="number" class="order-form__amount" min="1" max="100" value="1">
+								</form>
+								<span class="good__price-info price">
+									<b class="price__value" data-price="{{ good.price }}"></b>
+									<img src="{% static 'warmland/images/icons/coin.png' %}" class="price__img">
+								</span>
+							</div>
+						</div>
 					</div>
-					<div class="selection__sorter selection__sorter_pos_last">
-						<img src="images/icons/up-arrow.svg" alt="" class="selection__arrow-up" width="53px" height="28px" style="display:none">
-						<img src="images/icons/dot.svg" alt="" class="selection__dot" width="35px" height="20px" style="display:inline-block">
-						<img src="images/icons/down-arrow.svg" alt="" class="selection__arrow-down" width="53px" height="28px" style="display:none">
-						<button class="selection__btn selection__btn_type_sort" id="sort-price" data-sortup="none">Цена</button>
-					</div>
-				</div>
-				<div class="selection__right-col">
-					<label>
-						<span class="selection__selector-name">Тип:</span>
-						<select name="type-filter" id="type-filter" class="selection__type-filter">
-							<option value="all">Всё</option>
-							<option value="food">Еда</option>
-							<option value="ingot">Слитки</option>
-							<option value="block">Блоки</option>
-							<option value="material">Материалы</option>
-							<option value="service">Услуги</option>
-						</select>	
-					</label>	
-				</div>
-			</div> <!-- ./selection__inner -->
-		</div> <!-- ./selection -->
+				{% endif %}
+            {% endfor %}
+	        
+	    {% else %}
+	        <p>На рынке пусто... Приходите позже!</p>
+	    {% endif %}
 
-		<div class="good container1000">
-			<p class="not-found" id="good-not-found-msg">Нет такого товара :-(</p>
-			<div class="good__inner" id="good-list">
-				<!-- generated goods here -->
-			</div> <!-- ./good__inner -->
-		</div> <!-- ./good -->
-
-	</main>
+	</div> <!-- ./good__inner -->
+</div> <!-- ./good -->
+{% endblock %}
 
 
-	<!-- JS -->
-	<script src="{% static 'warmland/js/patternGenerator.js' %}"></script>
-	<script src="{% static 'warmland/js/goodGenerator.js' %}"></script>
-	<script src="{% static 'warmland/js/clipPopup.js' %}"></script>
-	<script src="{% static 'warmland/js/popupNav.js' %}"></script>
-	<script src="{% static 'warmland/js/goodHandler.js' %}"></script>
-</body>
-</html>
+<!-- JS -->
+{% block script %}
+<script src="{% static 'warmland/js/goodHandler.js' %}"></script>
+{% endblock %}

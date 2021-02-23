@@ -4,13 +4,19 @@ from django.utils import timezone
 from django.urls import reverse
 from django.views import generic
 
+from .models import Good
 
-def index(request):
-    return render(request, 'warmland/index.html')
+
+def home(request):
+    return render(request, 'warmland/home.html')
 
 
 def market(request):
-    return render(request, 'warmland/market.html')
+    latest_good_list = Good.objects.all()[:20]
+    context = { 
+    'latest_good_list': latest_good_list,
+    } 
+    return render(request, 'warmland/market.html', context)
 
 
 def blog(request):

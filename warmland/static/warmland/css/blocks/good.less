@@ -1,0 +1,227 @@
+// main: ../style.less
+
+.good {
+	margin-top: 80px;
+}
+
+.good__inner {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	font-size: 16px;
+}
+
+.good__item {
+	position: relative;
+	text-align: center;
+	display: flex;
+	margin-bottom: 80px;
+	margin-right: 60px;
+
+	height: 200px;
+}
+
+.good__name {
+	text-transform: uppercase;
+	font-size: 1.15rem;
+	font-weight: bold;
+
+	margin-bottom: 15px;
+}
+
+.good__left-col {
+	flex-basis: 50%;
+}
+
+.good__right-col {
+	flex-basis: 50%;
+	margin-left: 15px;
+}
+
+.good__img {
+	width: 100px;
+	height: 100px;
+}
+
+.good__description {
+	margin-bottom: 10px;
+	width: 270px;
+	height: 70px;
+	line-height: 20px;
+	overflow: hidden;
+}
+
+.good__price {
+	position: relative;
+	display: flex;
+	width: 280px;
+	padding: 10px;
+	justify-content: center;
+}
+
+.good__order-form {
+	display: flex;
+	width: 150px;
+}
+
+.order-form__btn {
+	width: 100px;
+	font-size: 1.15rem;
+}
+
+.order-form__amount {
+	width: 55px;
+	height: 65%;
+	margin: auto 0;
+	background-color: transparent;
+	color: white;
+	padding-left: 4px;
+	font-size: 1.15rem;
+	font-weight: bold;
+	margin-left: 10px;
+}
+
+.good__price-info {
+	display: flex;
+	width: auto;
+	margin-left: 30px;
+}
+
+div[data-filter='service'] .good__price-info {
+	margin-left: 75px;
+}
+
+.good__price-info-crossed {
+	display: flex;
+
+	position: absolute;
+	color: gray;
+
+	width: 41px;
+	height: 44px;
+	right: 0%;
+	top: -35%;
+
+	& img {
+		-webkit-filter: grayscale(1);
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		top: 48%;
+		width: 100%;
+		height: 1px;
+		background-color: red;
+
+	}
+}
+
+.price__value,
+.price__value-crossed {
+	margin: auto 5px auto 0;
+}
+
+.price__img {
+	width: 30px;
+	height: 30px;
+	margin: auto 0;
+}
+
+.order-form_service {
+	width: auto;
+}
+
+.hot-offers {
+	margin-top: 100px;
+}
+
+.hot-offers__title {
+	font-size: 1.5rem;
+	border-bottom: 2px solid orange;
+	padding-bottom: 30px;
+	margin-bottom: 50px;
+}
+
+.hot-offer {
+	display: flex;
+
+	position: absolute;
+	top: 60%;
+	left: 5%;
+
+	font-weight: bold;
+}
+
+.hot-offer__discount {
+	margin: 1em 0;
+
+	font-size: 1.15rem;
+	margin-right: 15px;
+	color: orange;
+}
+
+.hot-offer__img {
+	width: 42px;
+	height: 48px;
+}
+
+
+/* Media */
+@media screen and (max-width: 1020px) {
+	.good__inner {
+		justify-content: space-around;
+	}
+
+	.good__item  {
+		margin-bottom: 40px;
+		margin-right: 20px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.good__item  {
+		margin: 0 10px 40px 10px;
+		width: 300px;
+	}
+
+	.good__left-col {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.hot-offers {
+		text-align: center;
+	}
+
+	.good__item  {
+		width: 220px;
+	}
+
+	.good__right-col > * {
+		width: 200px;
+	}
+
+	.good__order {
+		margin-right: 25px;
+	}
+
+	.good__description {
+		line-height: 1rem;
+	}
+
+	.hot-offer {
+		top: 43.5%;
+		left: 53%;
+	}
+
+	div[data-filter='service'] .hot-offer {
+		top: 54.5%;
+		left: 55%;
+	}
+
+	.hot-offer__img {
+		display: none;
+	}
+}

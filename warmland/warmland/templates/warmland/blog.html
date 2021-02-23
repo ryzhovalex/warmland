@@ -1,99 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	{% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'warmland/css/style.css' %}">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
-	<title>Warmland</title>
-</head>
-<body id="blog">
-	<main>
-		<div class="news">
-			<div class="news__inner container1200 container1200_type_news-countborder">
-				<h1 class="news__title">Новости</h1>
-
-				<div class="news__block hs">	
-					<div class="news__col hs__col1 hs-col1">
-						<h2 class="hs-col1__title">В центре внимания</h2>
-						<div class="datetime">
-							<p class="datetime__top datetime__weekday" id="weekday"><!-- generate --></p>
-							<p class="datetime__bot">
-								<span class="datetime__day" id="day"><!-- generate --></span>
-								<span class="datetime__month" id="month"><!-- generate --></span>
-								<span class="datetime__year" id="year"><!-- generate --></span>
-							</p>
-						</div>
-					</div> <!-- ./col1 -->
-
-					<div class="news__col hs__col2 hs-col2">
-						<!-- generate -->
-					</div> <!-- ./col2 -->
-
-					<div class="news__col hs__col3 hs-col3">
-						<div class="hs-col3__left">
-							<!-- generate -->	
-						</div>
-						<div class="hs-col3__right">
-							<!-- generate -->
-						</div>					
-					</div> <!-- ./col3 -->
-				</div> <!-- ./headlines -->
+{% extends "warmland/base.html" %}
+{% load static %}
+{% block page_id %}blog{% endblock %}
 
 
-				<div class="news__block sp">	
-					<div class="news__col sp__col1 sp-col1">
-						<h2 class="sp-col1__title">Прожектор</h2>
-					</div> <!-- ./col1 -->
+{% block content %}
+<div class="news">
+	<div class="news__inner container1200 container1200_type_news-countborder">
+		<h1 class="news__title">Новости</h1>
 
-					<div class="news__col sp__col2 sp-col2">
-						<div class="sp-col2__top">
-							<!-- generate -->
-						</div>
-						<div class="sp-col2__bot">
-							<!-- generate -->
-						</div>
-					</div> <!-- ./col2 -->
+		<div class="news__block hs">	
+			<div class="news__col hs__col1 hs-col1">
+				<h2 class="hs-col1__title">В центре внимания</h2>
+				<div class="datetime">
+					<p class="datetime__top datetime__weekday" id="weekday"><!-- generate --></p>
+					<p class="datetime__bot">
+						<span class="datetime__day" id="day"><!-- generate --></span>
+						<span class="datetime__month" id="month"><!-- generate --></span>
+						<span class="datetime__year" id="year"><!-- generate --></span>
+					</p>
+				</div>
+			</div> <!-- ./col1 -->
 
-					<div class="news__col sp__col3 sp-col3">
-						<!-- generate -->
-					</div> <!-- ./col3 -->
-				</div> <!-- ./spotlight -->
+			<div class="news__col hs__col2 hs-col2">
+				<!-- generate -->
+			</div> <!-- ./col2 -->
+
+			<div class="news__col hs__col3 hs-col3">
+				<div class="hs-col3__left">
+					<!-- generate -->	
+				</div>
+				<div class="hs-col3__right">
+					<!-- generate -->
+				</div>					
+			</div> <!-- ./col3 -->
+		</div> <!-- ./headlines -->
 
 
-				<div class="news__block op">	
-					<div class="news__col op__col1 op-col1">
-						<h2 class="op-col1__title">Мнения</h2>
-					</div> <!-- ./col1 -->
+		<div class="news__block sp">	
+			<div class="news__col sp__col1 sp-col1">
+				<h2 class="sp-col1__title">Прожектор</h2>
+			</div> <!-- ./col1 -->
 
-					<div class="news__col op__col2 op-col2">
-						<div class="op-col2__top">
-							<div class="op-col2__block-header-container">
-								<h3 class="op-col2__block-header">Цитата дня -></h3>
-							</div>
-							<!-- generate -->
-						</div>
-						<div class="op-col2__bot">
-							<!-- generate -->
-						</div>
-					</div> <!-- ./col2 -->
+			<div class="news__col sp__col2 sp-col2">
+				<div class="sp-col2__top">
+					<!-- generate -->
+				</div>
+				<div class="sp-col2__bot">
+					<!-- generate -->
+				</div>
+			</div> <!-- ./col2 -->
 
-					<div class="news__col op__col3 op-col3">
-						
-					</div> <!-- ./col3 -->
-				</div> <!-- ./opinion -->
-			</div> <!-- ./news__inner -->
-		</div> <!-- ./news -->
-	</main>
+			<div class="news__col sp__col3 sp-col3">
+				<!-- generate -->
+			</div> <!-- ./col3 -->
+		</div> <!-- ./spotlight -->
 
-	
-	<!-- JS -->
-	<script src="{% static 'warmland/js/newsGenerator.js' %}"></script>
-	<script src="{% static 'warmland/js/patternGenerator.js' %}"></script>
-	<script src="{% static 'warmland/js/datetime.js' %}"></script>
-	<script src="{% static 'warmland/js/popupNav.js' %}"></script>
-	<script src="{% static 'warmland/js/clipPopup.js' %}"></script>
-</body>
-</html>
+
+		<div class="news__block op">	
+			<div class="news__col op__col1 op-col1">
+				<h2 class="op-col1__title">Мнения</h2>
+			</div> <!-- ./col1 -->
+
+			<div class="news__col op__col2 op-col2">
+				<div class="op-col2__top">
+					<div class="op-col2__block-header-container">
+						<h3 class="op-col2__block-header">Цитата дня -></h3>
+					</div>
+					<!-- generate -->
+				</div>
+				<div class="op-col2__bot">
+					<!-- generate -->
+				</div>
+			</div> <!-- ./col2 -->
+
+			<div class="news__col op__col3 op-col3">
+				
+			</div> <!-- ./col3 -->
+		</div> <!-- ./opinion -->
+	</div> <!-- ./news__inner -->
+</div> <!-- ./news -->
+{% endblock %}
+
+<!-- JS -->
+{% block script %}
+<script src="{% static 'warmland/js/datetime.js' %}"></script>
+{% endblock %}

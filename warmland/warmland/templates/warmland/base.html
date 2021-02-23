@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'warmland/css/style.css' %}">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+	<title>Warmland</title>
+</head>
+<body id="{% block page_id %}{% endblock %}">
+	<div class="header">
+		<div class="header__inner container1000">
+			<div class="title">
+				<div class="title__logo">
+					<img src="{% static 'warmland/images/logo-hoe.png' %}" alt="hoe" width="60px" height="60px">
+				</div>
+				<div class="title__content">
+					<a href="{% url 'warmland:home' %}">Warmland</a>
+				</div>
+			</div>
+			<div class="burger" id="burger"></div>
+			<nav class="nav nav_show_general" id="headnav">
+				<a href="{% url 'warmland:home' %}" class="nav__item headitem">Домой</a>
+				<a href="{% url 'warmland:market' %}" class="nav__item headitem">Рынок</a>
+				<a href="{% url 'warmland:blog' %}" class="nav__item headitem">Новости</a>
+				<a href="{% url 'warmland:about' %}" class="nav__item headitem">О нас</a>
+			</nav>
+			<div class="connect">
+				<p class="connect__content" onclick="clickCopy('ho.mcplay.in:25657')">	
+					ho.mcplay.in:25657
+					<span class="popup-content" id="connectPopup">Скопировано в буфер обмена.</span>
+				</p>	
+			</div>
+		</div>
+	</div>
+	
+
+	{% block content %}{% endblock %}
+
+
+	<div class="footer">
+		<div class="footer__inner container1600">
+			<div class="footer__left">
+				<div class="footer__logo title__content">Warmland</div>
+				<p class="footer__dscr">Лучшее погружение в мир vanilla и industrial minecraft. Подключайся к нам, будем собирать пшеницу вместе!</p>
+			</div>
+
+			<div class="footer__right">
+				<nav class="nav nav-bot">
+					<a href="{% url 'warmland:home' %}" class="nav__item">Домой</a>
+					<a href="{% url 'warmland:market' %}" class="nav__item">Рынок</a>
+					<a href="{% url 'warmland:blog' %}" class="nav__item">Новости</a>
+					<a href="{% url 'warmland:about' %}" class="nav__item">О нас</a>
+				</nav>
+				<div class="footer__right-bot">
+					<div class="footer__contact contacts">
+						<div class="contacts__item">
+							<a href="https://discord.gg/rt5NvfFZcw" class="discord-href" id="discord-href">
+								<img src="{% static 'warmland/images/icons/discord.png' %}" alt="" class="discord-href__img" width="48px" height="48px">
+							</a>
+						</div>
+					</div>
+					<p class="footer__powered">Powered by: Creeper Explosive Solutions</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- JS -->
+	<script src="{% static 'warmland/js/clipPopup.js' %}"></script>
+	<script src="{% static 'warmland/js/popupNav.js' %}"></script>
+	{% block script %}{% endblock %}
+</body>
+</html>

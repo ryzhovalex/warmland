@@ -1,0 +1,16 @@
+.photos {
+  margin-top: 25px;
+}
+.photos__inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+/* Media */
+@media screen and (max-width: 400px) {
+  .photos__photo {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=photos.css.map */
