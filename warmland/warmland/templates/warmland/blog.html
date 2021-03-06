@@ -5,83 +5,49 @@
 
 {% block content %}
 <div class="news">
-	<div class="news__inner container1200 container1200_type_news-countborder">
-		<h1 class="news__title">Новости</h1>
-
-		<div class="news__block hs">	
-			<div class="news__col hs__col1 hs-col1">
-				<h2 class="hs-col1__title">В центре внимания</h2>
-				<div class="datetime">
-					<p class="datetime__top datetime__weekday" id="weekday"><!-- generate --></p>
-					<p class="datetime__bot">
-						<span class="datetime__day" id="day"><!-- generate --></span>
-						<span class="datetime__month" id="month"><!-- generate --></span>
-						<span class="datetime__year" id="year"><!-- generate --></span>
-					</p>
+	<div class="news__inner container1200">
+		<div class="news__leftcol">
+			<div class="news__post post">
+				<div class="post__author author">
+					<img src="{% static 'warmland/images/news/homer.png' %}" class="author__avatar">
+					<span class="author__name">Homer</span>
+					<span class="author__publish-date">1 March 2021</span>
 				</div>
-			</div> <!-- ./col1 -->
-
-			<div class="news__col hs__col2 hs-col2">
-				<!-- generate -->
-			</div> <!-- ./col2 -->
-
-			<div class="news__col hs__col3 hs-col3">
-				<div class="hs-col3__left">
-					<!-- generate -->	
+				<p class="post__title">Скалолаз Дима упал с горы при поиске руды.</p>
+				<ul class="post__tags-list">
+					<li class="post__tag">#горы</li>
+					<li class="post__tag">#шахтёрство</li>
+					<li class="post__tag">#туризм</li>
+				</ul>
+				<img src="{% static 'warmland/images/news/nice-villager.jpg' %}" class="post__img">
+				<p class="post__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia eum aspernatur eligendi, voluptatem debitis assumenda, placeat facilis nam reprehenderit repellat alias autem quas, voluptatum et esse recusandae sapiente, minima perferendis.</p>
+				<a href="#" class="post__readwhole">Читать полностью...</a>
+				<div class="post__activity activity">
+					<span class="activity__item" id="like">
+						<button class="activity__button"><img src="{% static 'warmland/images/icons/post/like.png' %}" class="activity__button-img"></button>
+						<span class="activity__counter">0</span>
+					</span>
+					<span class="activity__item" id="views">
+						<button class="activity__button"><img src="{% static 'warmland/images/icons/post/eye.png' %}" class="activity__button-img"></button>
+						<span class="activity__counter">0</span>
+					</span>
+					<span class="activity__item" id="comments">
+						<button class="activity__button"><img src="{% static 'warmland/images/icons/post/comment.png' %}" class="activity__button-img"></button>
+						<span class="activity__counter">0</span>
+					</span>
 				</div>
-				<div class="hs-col3__right">
-					<!-- generate -->
-				</div>					
-			</div> <!-- ./col3 -->
-		</div> <!-- ./headlines -->
+			</div>
+		</div>
 
-
-		<div class="news__block sp">	
-			<div class="news__col sp__col1 sp-col1">
-				<h2 class="sp-col1__title">Прожектор</h2>
-			</div> <!-- ./col1 -->
-
-			<div class="news__col sp__col2 sp-col2">
-				<div class="sp-col2__top">
-					<!-- generate -->
-				</div>
-				<div class="sp-col2__bot">
-					<!-- generate -->
-				</div>
-			</div> <!-- ./col2 -->
-
-			<div class="news__col sp__col3 sp-col3">
-				<!-- generate -->
-			</div> <!-- ./col3 -->
-		</div> <!-- ./spotlight -->
-
-
-		<div class="news__block op">	
-			<div class="news__col op__col1 op-col1">
-				<h2 class="op-col1__title">Мнения</h2>
-			</div> <!-- ./col1 -->
-
-			<div class="news__col op__col2 op-col2">
-				<div class="op-col2__top">
-					<div class="op-col2__block-header-container">
-						<h3 class="op-col2__block-header">Цитата дня -></h3>
-					</div>
-					<!-- generate -->
-				</div>
-				<div class="op-col2__bot">
-					<!-- generate -->
-				</div>
-			</div> <!-- ./col2 -->
-
-			<div class="news__col op__col3 op-col3">
-				
-			</div> <!-- ./col3 -->
-		</div> <!-- ./opinion -->
+		<div class="news__rightcol">
+			<div class="news__advertisment"></div>
+			<div class="news__quotes"></div>
+		</div>
 	</div> <!-- ./news__inner -->
 </div> <!-- ./news -->
 {% endblock %}
 
 <!-- JS -->
 {% block script %}
-<script src="{% static 'warmland/js/datetime.js' %}"></script>
+<script src="{% static 'warmland/js/datetime. js' %}"></script>
 {% endblock %}
